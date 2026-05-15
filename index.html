@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rodolfo Pezzi</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Source+Sans+3:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:        #EDE3D0;
+      --bg-dark:   #E3D8C2;
+      --bg-card:   #E8DECA;
+      --red:       #8C1A1A;
+      --red-lt:    #B03030;
+      --text:      #2C1A10;
+      --text-muted:#7A5C48;
+      --border:    rgba(140, 26, 26, 0.15);
+      --sidebar-w: 260px;
+      --nav-h:     58px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Source Sans 3', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      font-size: 15px;
+      line-height: 1.75;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: var(--nav-h);
+      background: var(--bg-dark);
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      padding: 0 2rem;
+      gap: 2.5rem;
+      z-index: 100;
+    }
+
+    .nav-name {
+      font-family: 'Lora', serif;
+      font-size: 1.05rem;
+      font-weight: 500;
+      color: var(--red);
+      white-space: nowrap;
+      margin-right: auto;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 2rem;
+    }
+
+    nav ul a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.875rem;
+      font-weight: 400;
+      letter-spacing: 0.01em;
+      transition: color 0.2s;
+    }
+
+    nav ul a:hover { color: var(--red); }
+
+    /* ── LAYOUT ── */
+    .layout {
+      display: flex;
+      padding-top: var(--nav-h);
+      min-height: 100vh;
+    }
+
+    /* ── SIDEBAR ── */
+    .sidebar {
+      width: var(--sidebar-w);
+      min-width: var(--sidebar-w);
+      padding: 2.75rem 1.75rem 2rem;
+      position: sticky;
+      top: var(--nav-h);
+      height: calc(100vh - var(--nav-h));
+      overflow-y: auto;
+      border-right: 1px solid var(--border);
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+
+    .photo-wrap {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 0.25rem;
+    }
+
+    .photo-circle {
+      width: 130px;
+      height: 130px;
+      border-radius: 50%;
+      border: 2.5px solid var(--red);
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--bg-card);
+      font-family: 'Lora', serif;
+      font-size: 2.2rem;
+      font-weight: 500;
+      color: var(--red);
+    }
+
+    .photo-circle img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .sidebar-name {
+      font-family: 'Lora', serif;
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--text);
+      line-height: 1.3;
+    }
+
+    .sidebar-role {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+      margin-top: 0.25rem;
+    }
+
+    .sidebar-divider {
+      border: none;
+      border-top: 1px solid var(--border);
+    }
+
+    .sidebar-links {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.65rem;
+    }
+
+    .sidebar-links li {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-size: 0.82rem;
+      color: var(--text-muted);
+    }
+
+    .sidebar-links li svg {
+      width: 14px;
+      height: 14px;
+      flex-shrink: 0;
+      stroke: var(--red);
+      fill: none;
+      stroke-width: 1.8;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .sidebar-links a {
+      color: var(--red);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .sidebar-links a:hover { color: var(--red-lt); text-decoration: underline; }
+
+    /* ── MAIN ── */
+    main {
+      flex: 1;
+      padding: 3rem 3.5rem 4rem 3rem;
+      max-width: 860px;
+    }
+
+    /* ── SECTION HEADINGS ── */
+    .section-head {
+      font-family: 'Lora', serif;
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--red);
+      letter-spacing: 0.03em;
+      margin-bottom: 1.25rem;
+      padding-bottom: 0.45rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    section { margin-bottom: 3rem; }
+
+    /* ── BIO ── */
+    #about p {
+      font-size: 0.93rem;
+      color: var(--text);
+      line-height: 1.85;
+      margin-bottom: 0.85rem;
+    }
+
+    /* ── PUBLICATIONS / WORK IN PROGRESS ── */
+    .pub-group { margin-bottom: 1.75rem; }
+
+    .pub-group-label {
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      margin-bottom: 0.6rem;
+    }
+
+    .pub-entry {
+      padding: 0.85rem 1rem;
+      border-left: 2px solid var(--border);
+      margin-bottom: 0.65rem;
+      transition: border-color 0.2s;
+    }
+
+    .pub-entry:hover { border-left-color: var(--red); }
+
+    .pub-title {
+      font-family: 'Lora', serif;
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: var(--text);
+      line-height: 1.5;
+      margin-bottom: 0.3rem;
+    }
+
+    .pub-meta {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    .pub-meta em {
+      font-style: italic;
+      color: var(--red-lt);
+    }
+
+    .pub-links {
+      margin-top: 0.4rem;
+      display: flex;
+      gap: 0.85rem;
+    }
+
+    .pub-links a {
+      font-size: 0.78rem;
+      color: var(--red);
+      text-decoration: none;
+      border: 1px solid rgba(140,26,26,0.3);
+      padding: 1px 8px;
+      border-radius: 3px;
+      transition: background 0.2s, color 0.2s;
+    }
+
+    .pub-links a:hover {
+      background: rgba(140,26,26,0.08);
+      color: var(--red-lt);
+    }
+
+    /* ── JOURNALISM ── */
+    .journal-entry {
+      display: flex;
+      gap: 1.25rem;
+      padding: 0.85rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .journal-entry:last-child { border-bottom: none; }
+
+    .journal-year {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      min-width: 40px;
+      padding-top: 2px;
+    }
+
+    .journal-title {
+      font-family: 'Lora', serif;
+      font-size: 0.88rem;
+      font-weight: 500;
+      color: var(--text);
+      line-height: 1.5;
+      margin-bottom: 0.2rem;
+    }
+
+    .journal-venue {
+      font-size: 0.78rem;
+      color: var(--red);
+    }
+
+    .journal-desc {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-top: 0.25rem;
+      line-height: 1.6;
+    }
+
+    .journal-link {
+      display: inline-block;
+      margin-top: 0.35rem;
+      font-size: 0.78rem;
+      color: var(--red);
+      text-decoration: none;
+    }
+
+    .journal-link:hover { text-decoration: underline; }
+
+    /* ── CV ── */
+    .cv-section { margin-bottom: 1.5rem; }
+
+    .cv-section-title {
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      margin-bottom: 0.75rem;
+    }
+
+    .cv-row {
+      display: flex;
+      gap: 1.25rem;
+      margin-bottom: 0.85rem;
+    }
+
+    .cv-dates {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      min-width: 80px;
+      padding-top: 2px;
+      white-space: nowrap;
+    }
+
+    .cv-desc { flex: 1; }
+
+    .cv-desc strong {
+      font-size: 0.88rem;
+      font-weight: 500;
+      color: var(--text);
+      display: block;
+      line-height: 1.4;
+    }
+
+    .cv-desc span {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    .cv-download {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      margin-top: 0.5rem;
+      font-size: 0.82rem;
+      color: var(--red);
+      text-decoration: none;
+      border: 1px solid rgba(140,26,26,0.35);
+      padding: 5px 14px;
+      border-radius: 4px;
+      transition: background 0.2s;
+    }
+
+    .cv-download:hover { background: rgba(140,26,26,0.07); }
+
+    /* ── DATA & CODE ── */
+    .code-entry {
+      padding: 0.85rem 1rem;
+      background: var(--bg-dark);
+      border-radius: 5px;
+      margin-bottom: 0.65rem;
+      border: 1px solid var(--border);
+    }
+
+    .code-entry h3 {
+      font-size: 0.88rem;
+      font-weight: 500;
+      color: var(--text);
+      margin-bottom: 0.2rem;
+    }
+
+    .code-entry p {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    .code-entry a {
+      font-size: 0.78rem;
+      color: var(--red);
+      text-decoration: none;
+    }
+
+    .code-entry a:hover { text-decoration: underline; }
+
+    /* ── FOOTER ── */
+    footer {
+      text-align: center;
+      padding: 1.5rem 2rem;
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      border-top: 1px solid var(--border);
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 720px) {
+      .layout { flex-direction: column; }
+      .sidebar {
+        width: 100%;
+        height: auto;
+        position: static;
+        border-right: none;
+        border-bottom: 1px solid var(--border);
+        padding: 1.75rem 1.5rem;
+      }
+      main { padding: 2rem 1.5rem 3rem; }
+      nav ul { gap: 1.1rem; }
+      .nav-name { font-size: 0.9rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVIGATION -->
+  <nav>
+    <span class="nav-name">Rodolfo Pezzi</span>
+    <ul>
+      <li><a href="#wip">Work in progress</a></li>
+      <li><a href="#publications">Publications</a></li>
+      <li><a href="#journalism">Journalism</a></li>
+      <li><a href="#cv">CV</a></li>
+      <li><a href="#code">Data &amp; Code</a></li>
+    </ul>
+  </nav>
+
+  <div class="layout">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+      <div class="photo-wrap">
+        <div class="photo-circle">
+          <!-- To add your photo, replace the RP below with:
+               <img src="photo.jpg" alt="Rodolfo Pezzi" />
+               and delete the RP text -->
+          RP
+        </div>
+      </div>
+
+      <div>
+        <div class="sidebar-name">Rodolfo Pezzi</div>
+        <div class="sidebar-role">
+          PhD Researcher<br />
+          School of Sociology<br />
+          University College Dublin
+        </div>
+      </div>
+
+      <hr class="sidebar-divider" />
+
+      <ul class="sidebar-links">
+        <li>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5S10.62 6.5 12 6.5s2.5 1.12 2.5 2.5S13.38 11.5 12 11.5z"/></svg>
+          Dublin, Ireland
+        </li>
+        <li>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 7 10-7"/></svg>
+          <a href="mailto:your.email@ucd.ie">your.email@ucd.ie</a>
+        </li>
+        <li>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+          <a href="https://github.com/rodolfopezzi" target="_blank">GitHub</a>
+        </li>
+        <li>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+          <a href="https://scholar.google.com" target="_blank">Google Scholar</a>
+        </li>
+        <li>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 8v8m-4-4h8"/></svg>
+          <a href="https://orcid.org/your-orcid" target="_blank">ORCID</a>
+        </li>
+      </ul>
+    </aside>
+
+    <!-- MAIN CONTENT -->
+    <main>
+
+      <!-- ABOUT -->
+      <section id="about">
+        <h2 class="section-head">About</h2>
+        <p>
+          I am a PhD researcher in the School of Sociology at University College Dublin, working at the intersection of social stratification, educational inequality, and school-to-work transitions. My research examines how social origin shapes educational outcomes across the life course, with a particular focus on dropout from higher education and the formation of educational expectations.
+        </p>
+        <p>
+          My current projects draw on large-scale longitudinal survey data, including the Growing Up in Ireland 1998 cohort study and the COSMO dataset for England. I am trained in quantitative methods and engage closely with the theoretical traditions of the sociology of education, with scholarly anchors in the work of Carlo Barone, Fabrizio Bernardi, and John Goldthorpe.
+        </p>
+        <p>
+          Alongside my academic work, I write long-form investigative and political journalism for <em>Jacobin Italia</em> under the byline Rodolfo Pezzi, covering topics from educational policy to the political economy of digital infrastructure.
+        </p>
+      </section>
+
+      <!-- WORK IN PROGRESS -->
+      <section id="wip">
+        <h2 class="section-head">Work in progress</h2>
+
+        <div class="pub-group">
+          <div class="pub-group-label">Higher education &middot; Ireland</div>
+          <div class="pub-entry">
+            <div class="pub-title">Social origin differentials in dropout risk in Irish higher education</div>
+            <div class="pub-meta">
+              Using the Growing Up in Ireland 1998 cohort study (GII98) &mdash; multi-indicator operationalisation of social origin combining parental class, education, and income.
+            </div>
+            <div class="pub-meta" style="margin-top:0.2rem"><em>Under review</em></div>
+          </div>
+        </div>
+
+        <div class="pub-group">
+          <div class="pub-group-label">Educational expectations &middot; England</div>
+          <div class="pub-entry">
+            <div class="pub-title">Pathway-specific educational expectations by socioeconomic background and ethnicity: Evidence from COSMO</div>
+            <div class="pub-meta">
+              Examining expectations toward A-levels, T-levels, and apprenticeships using the COSMO dataset; socioeconomic background and ethnicity as primary axes of differentiation.
+            </div>
+            <div class="pub-meta" style="margin-top:0.2rem"><em>Work in progress</em></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- PUBLICATIONS -->
+      <section id="publications">
+        <h2 class="section-head">Publications</h2>
+
+        <div class="pub-group">
+          <div class="pub-group-label">Peer-reviewed articles</div>
+
+          <div class="pub-entry">
+            <div class="pub-title">Article title here (w/ Co-Author Name)</div>
+            <div class="pub-meta"><em>Journal Name</em>, Volume(Issue), pp. xxx&ndash;xxx, Year.</div>
+            <div class="pub-links">
+              <a href="#">DOI</a>
+              <a href="#">Preprint</a>
+              <a href="#">Replication materials</a>
+            </div>
+          </div>
+
+          <div class="pub-entry">
+            <div class="pub-title">Second article title here</div>
+            <div class="pub-meta"><em>Journal Name</em>, Volume(Issue), pp. xxx&ndash;xxx, Year.</div>
+            <div class="pub-links">
+              <a href="#">DOI</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- JOURNALISM -->
+      <section id="journalism">
+        <h2 class="section-head">Journalism</h2>
+
+        <div class="journal-entry">
+          <span class="journal-year">2024</span>
+          <div>
+            <div class="journal-title">La nube ha sete: data center, consumo energetico e gentrificazione dell'energia</div>
+            <div class="journal-venue">Jacobin Italia</div>
+            <div class="journal-desc">
+              An investigative long-form piece on data centres, energy consumption, and the political economy of digital infrastructure, examining Ireland as a cautionary precedent for Italy and tracing the military-industrial dimensions of cloud computing.
+            </div>
+            <a class="journal-link" href="#" target="_blank">Read article &rarr;</a>
+          </div>
+        </div>
+
+        <div class="journal-entry">
+          <span class="journal-year">2023</span>
+          <div>
+            <div class="journal-title">Article title here</div>
+            <div class="journal-venue">Jacobin Italia</div>
+            <div class="journal-desc">Brief description of the piece.</div>
+            <a class="journal-link" href="#" target="_blank">Read article &rarr;</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- CV -->
+      <section id="cv">
+        <h2 class="section-head">Curriculum vitae</h2>
+
+        <div class="cv-section">
+          <div class="cv-section-title">Education</div>
+          <div class="cv-row">
+            <span class="cv-dates">2022&ndash;present</span>
+            <div class="cv-desc">
+              <strong>PhD in Sociology</strong>
+              <span>University College Dublin &mdash; School of Sociology</span>
+            </div>
+          </div>
+          <div class="cv-row">
+            <span class="cv-dates">YYYY&ndash;YYYY</span>
+            <div class="cv-desc">
+              <strong>MA in [field]</strong>
+              <span>Institution name</span>
+            </div>
+          </div>
+          <div class="cv-row">
+            <span class="cv-dates">YYYY&ndash;YYYY</span>
+            <div class="cv-desc">
+              <strong>BA in [field]</strong>
+              <span>Institution name</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="cv-section">
+          <div class="cv-section-title">Academic positions &amp; affiliations</div>
+          <div class="cv-row">
+            <span class="cv-dates">2022&ndash;present</span>
+            <div class="cv-desc">
+              <strong>PhD Researcher</strong>
+              <span>University College Dublin</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="cv-section">
+          <div class="cv-section-title">Journalism</div>
+          <div class="cv-row">
+            <span class="cv-dates">YYYY&ndash;present</span>
+            <div class="cv-desc">
+              <strong>Contributing journalist</strong>
+              <span>Jacobin Italia (byline: Rodolfo Pezzi)</span>
+            </div>
+          </div>
+        </div>
+
+        <a class="cv-download" href="cv.pdf" target="_blank">
+          &#8659; Download full CV (PDF)
+        </a>
+      </section>
+
+      <!-- DATA & CODE -->
+      <section id="code">
+        <h2 class="section-head">Data &amp; Code</h2>
+
+        <div class="code-entry">
+          <h3>Replication materials: [Article title]</h3>
+          <p>Dataset, analysis scripts, and codebook for the paper on social origin and dropout risk in Irish higher education.</p>
+          <a href="https://github.com/rodolfopezzi" target="_blank">GitHub repository &rarr;</a>
+        </div>
+
+        <div class="code-entry">
+          <h3>Replication materials: [Article title]</h3>
+          <p>Replication code and supplementary materials.</p>
+          <a href="https://github.com/rodolfopezzi" target="_blank">GitHub repository &rarr;</a>
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <footer>
+    &copy; 2026 Rodolfo Pezzi &mdash; Last updated May 2026
+  </footer>
+
+</body>
+</html>
