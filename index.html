@@ -33,7 +33,6 @@
       line-height: 1.75;
     }
 
-    /* ── NAV ── */
     nav {
       position: fixed;
       top: 0; left: 0; right: 0;
@@ -73,14 +72,12 @@
 
     nav ul a:hover { color: var(--red); }
 
-    /* ── LAYOUT ── */
     .layout {
       display: flex;
       padding-top: var(--nav-h);
       min-height: 100vh;
     }
 
-    /* ── SIDEBAR ── */
     .sidebar {
       width: var(--sidebar-w);
       min-width: var(--sidebar-w);
@@ -111,10 +108,6 @@
       align-items: center;
       justify-content: center;
       background: var(--bg-card);
-      font-family: 'Lora', serif;
-      font-size: 2.2rem;
-      font-weight: 500;
-      color: var(--red);
     }
 
     .photo-circle img {
@@ -177,14 +170,12 @@
 
     .sidebar-links a:hover { color: var(--red-lt); text-decoration: underline; }
 
-    /* ── MAIN ── */
     main {
       flex: 1;
       padding: 3rem 3.5rem 4rem 3rem;
       max-width: 860px;
     }
 
-    /* ── SECTION HEADINGS ── */
     .section-head {
       font-family: 'Lora', serif;
       font-size: 1rem;
@@ -198,7 +189,6 @@
 
     section { margin-bottom: 3rem; }
 
-    /* ── BIO ── */
     #about p {
       font-size: 0.93rem;
       color: var(--text);
@@ -206,14 +196,13 @@
       margin-bottom: 0.85rem;
     }
 
-    /* ── PUBLICATIONS / WORK IN PROGRESS ── */
     .pub-group { margin-bottom: 1.75rem; }
 
     .pub-group-label {
-      font-size: 0.82rem;
+      font-size: 0.78rem;
       font-weight: 600;
       color: var(--text-muted);
-      letter-spacing: 0.04em;
+      letter-spacing: 0.05em;
       text-transform: uppercase;
       margin-bottom: 0.6rem;
     }
@@ -239,7 +228,7 @@
     .pub-meta {
       font-size: 0.8rem;
       color: var(--text-muted);
-      line-height: 1.5;
+      line-height: 1.55;
     }
 
     .pub-meta em {
@@ -247,28 +236,54 @@
       color: var(--red-lt);
     }
 
+    .pub-status {
+      display: inline-block;
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      padding: 1px 7px;
+      border-radius: 3px;
+      margin-top: 0.35rem;
+    }
+
+    .status-published {
+      background: rgba(140,26,26,0.1);
+      color: var(--red);
+      border: 1px solid rgba(140,26,26,0.25);
+    }
+
+    .status-review {
+      background: rgba(122,92,72,0.1);
+      color: var(--text-muted);
+      border: 1px solid rgba(122,92,72,0.25);
+    }
+
+    .status-progress {
+      background: rgba(122,92,72,0.07);
+      color: var(--text-muted);
+      border: 1px solid rgba(122,92,72,0.18);
+    }
+
     .pub-links {
-      margin-top: 0.4rem;
+      margin-top: 0.5rem;
       display: flex;
-      gap: 0.85rem;
+      gap: 0.75rem;
+      flex-wrap: wrap;
     }
 
     .pub-links a {
-      font-size: 0.78rem;
+      font-size: 0.75rem;
       color: var(--red);
       text-decoration: none;
       border: 1px solid rgba(140,26,26,0.3);
-      padding: 1px 8px;
+      padding: 2px 9px;
       border-radius: 3px;
-      transition: background 0.2s, color 0.2s;
+      transition: background 0.2s;
     }
 
-    .pub-links a:hover {
-      background: rgba(140,26,26,0.08);
-      color: var(--red-lt);
-    }
+    .pub-links a:hover { background: rgba(140,26,26,0.08); }
 
-    /* ── JOURNALISM ── */
     .journal-entry {
       display: flex;
       gap: 1.25rem;
@@ -316,28 +331,29 @@
 
     .journal-link:hover { text-decoration: underline; }
 
-    /* ── CV ── */
-    .cv-section { margin-bottom: 1.5rem; }
+    .cv-section { margin-bottom: 1.75rem; }
 
     .cv-section-title {
-      font-size: 0.78rem;
+      font-size: 0.75rem;
       font-weight: 600;
       color: var(--text-muted);
-      letter-spacing: 0.06em;
+      letter-spacing: 0.07em;
       text-transform: uppercase;
-      margin-bottom: 0.75rem;
+      margin-bottom: 0.8rem;
+      padding-bottom: 0.3rem;
+      border-bottom: 1px solid var(--border);
     }
 
     .cv-row {
       display: flex;
       gap: 1.25rem;
-      margin-bottom: 0.85rem;
+      margin-bottom: 0.9rem;
     }
 
     .cv-dates {
-      font-size: 0.78rem;
+      font-size: 0.77rem;
       color: var(--text-muted);
-      min-width: 80px;
+      min-width: 95px;
       padding-top: 2px;
       white-space: nowrap;
     }
@@ -355,13 +371,33 @@
     .cv-desc span {
       font-size: 0.8rem;
       color: var(--text-muted);
+      display: block;
+      line-height: 1.5;
+    }
+
+    .cv-desc .cv-note {
+      font-size: 0.77rem;
+      color: var(--text-muted);
+      font-style: italic;
+      margin-top: 0.15rem;
+    }
+
+    .award-pill {
+      display: inline-block;
+      font-size: 0.72rem;
+      color: var(--red);
+      border: 1px solid rgba(140,26,26,0.25);
+      padding: 1px 7px;
+      border-radius: 3px;
+      margin-left: 0.4rem;
+      vertical-align: middle;
     }
 
     .cv-download {
       display: inline-flex;
       align-items: center;
       gap: 0.45rem;
-      margin-top: 0.5rem;
+      margin-top: 0.25rem;
       font-size: 0.82rem;
       color: var(--red);
       text-decoration: none;
@@ -373,36 +409,47 @@
 
     .cv-download:hover { background: rgba(140,26,26,0.07); }
 
-    /* ── DATA & CODE ── */
-    .code-entry {
-      padding: 0.85rem 1rem;
-      background: var(--bg-dark);
-      border-radius: 5px;
-      margin-bottom: 0.65rem;
-      border: 1px solid var(--border);
+    .conf-entry {
+      display: flex;
+      gap: 1.25rem;
+      padding: 0.6rem 0;
+      border-bottom: 1px solid var(--border);
     }
 
-    .code-entry h3 {
-      font-size: 0.88rem;
+    .conf-entry:last-child { border-bottom: none; }
+
+    .conf-date {
+      font-size: 0.77rem;
+      color: var(--text-muted);
+      min-width: 95px;
+      padding-top: 2px;
+    }
+
+    .conf-body strong {
+      font-size: 0.85rem;
       font-weight: 500;
       color: var(--text);
-      margin-bottom: 0.2rem;
+      display: block;
+      line-height: 1.4;
     }
 
-    .code-entry p {
-      font-size: 0.8rem;
+    .conf-body span {
+      font-size: 0.78rem;
       color: var(--text-muted);
     }
 
-    .code-entry a {
-      font-size: 0.78rem;
-      color: var(--red);
-      text-decoration: none;
+    .conf-type {
+      display: inline-block;
+      font-size: 0.7rem;
+      padding: 0px 6px;
+      border-radius: 3px;
+      margin-left: 0.4rem;
+      vertical-align: middle;
+      background: rgba(122,92,72,0.1);
+      color: var(--text-muted);
+      border: 1px solid rgba(122,92,72,0.2);
     }
 
-    .code-entry a:hover { text-decoration: underline; }
-
-    /* ── FOOTER ── */
     footer {
       text-align: center;
       padding: 1.5rem 2rem;
@@ -411,7 +458,6 @@
       border-top: 1px solid var(--border);
     }
 
-    /* ── RESPONSIVE ── */
     @media (max-width: 720px) {
       .layout { flex-direction: column; }
       .sidebar {
@@ -423,14 +469,14 @@
         padding: 1.75rem 1.5rem;
       }
       main { padding: 2rem 1.5rem 3rem; }
-      nav ul { gap: 1.1rem; }
+      nav ul { gap: 1rem; }
+      nav ul a { font-size: 0.78rem; }
       .nav-name { font-size: 0.9rem; }
     }
   </style>
 </head>
 <body>
 
-  <!-- NAVIGATION -->
   <nav>
     <span class="nav-name">Rodolfo Pezzi</span>
     <ul>
@@ -438,27 +484,24 @@
       <li><a href="#publications">Publications</a></li>
       <li><a href="#journalism">Journalism</a></li>
       <li><a href="#cv">CV</a></li>
-      <li><a href="#code">Data &amp; Code</a></li>
+      <li><a href="#conferences">Conferences</a></li>
+      <li><a href="#teaching">Teaching</a></li>
     </ul>
   </nav>
 
   <div class="layout">
 
-    <!-- SIDEBAR -->
     <aside class="sidebar">
       <div class="photo-wrap">
         <div class="photo-circle">
-          <!-- To add your photo, replace the RP below with:
-               <img src="_DSF1611_2.png" alt="Rodolfo Pezzi" />
-               and delete the RP text -->
-          RP
+          <img src="_DSF1611_2.png" alt="Rodolfo Pezzi" />
         </div>
       </div>
 
       <div>
         <div class="sidebar-name">Rodolfo Pezzi</div>
         <div class="sidebar-role">
-          PhD Researcher<br />
+          PhD Candidate in Sociology<br />
           Department of Sociology<br />
           Trinity College Dublin
         </div>
@@ -476,34 +519,40 @@
           <a href="mailto:pezzir@tcd.ie">pezzir@tcd.ie</a>
         </li>
         <li>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+          <a href="https://www.linkedin.com/in/rodolfo-pezzi" target="_blank">LinkedIn</a>
+        </li>
+        <li>
           <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
           <a href="https://github.com/rodolfopezzi" target="_blank">GitHub</a>
         </li>
         <li>
           <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
-          <a href="https://scholar.google.com/citations?user=GNrh7mAAAAAJ&hl=en&oi=ao" target="_blank">Google Scholar</a>
+          <a href="https://scholar.google.com/citations?user=YOURID" target="_blank">Google Scholar</a>
         </li>
         <li>
           <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 8v8m-4-4h8"/></svg>
-          <a href="https://orcid.org/my-orcid?orcid=0000-0003-0740-5759" target="_blank">ORCID</a>
+          <a href="https://orcid.org/0000-0003-0740-5759" target="_blank">ORCID</a>
         </li>
       </ul>
     </aside>
 
-    <!-- MAIN CONTENT -->
     <main>
 
       <!-- ABOUT -->
       <section id="about">
         <h2 class="section-head">About</h2>
         <p>
-          I am a PhD researcher in the School of Sociology at University College Dublin, working at the intersection of social stratification, educational inequality, and school-to-work transitions. My research examines how social origin shapes educational outcomes across the life course, with a particular focus on dropout from higher education and the formation of educational expectations.
+          I am a PhD candidate in Sociology at Trinity College Dublin, supervised by Dr. Yekaterina Chzhen. My research sits at the intersection of social stratification, sociology of education, and life course inequalities, with a focus on how social origin shapes educational pathways from childhood to early adulthood.
         </p>
         <p>
-          My current projects draw on large-scale longitudinal survey data, including the Growing Up in Ireland 1998 cohort study and the COSMO dataset for England. I am trained in quantitative methods and engage closely with the theoretical traditions of the sociology of education, with scholarly anchors in the work of Carlo Barone, Fabrizio Bernardi, and John Goldthorpe.
+          My current work draws on large-scale longitudinal and administrative data, including the Growing Up in Ireland cohort study and the COSMO dataset for England, and engages with questions of higher education access and dropout, educational expectations, and the cognitive and socio-emotional consequences of social disadvantage. I use quantitative methods, including regression modelling, decomposition techniques, and longitudinal analysis.
         </p>
         <p>
-          Alongside my academic work, I write long-form investigative and political journalism for <em>Jacobin Italia</em> under the byline Rodolfo Pezzi, covering topics from educational policy to the political economy of digital infrastructure.
+          In the academic year 2025&ndash;2026 I also served as Lecturer in Social Inequality and Intergroup Relations at Dublin City University. Between September and December 2025 I was a visiting researcher at the DemoSoc Group, Universitat Pompeu Fabra, Barcelona, hosted by Dr. Luis Ortiz-Gervasi.
+        </p>
+        <p>
+          Alongside my academic work, I write political and investigative journalism for <em>Jacobin Italia</em>.
         </p>
       </section>
 
@@ -512,24 +561,25 @@
         <h2 class="section-head">Work in progress</h2>
 
         <div class="pub-group">
-          <div class="pub-group-label">Higher education &middot; Ireland</div>
           <div class="pub-entry">
-            <div class="pub-title">Social origin differentials in dropout risk in Irish higher education</div>
-            <div class="pub-meta">
-              Using the Growing Up in Ireland 1998 cohort study (GII98) &mdash; multi-indicator operationalisation of social origin combining parental class, education, and income.
-            </div>
-            <div class="pub-meta" style="margin-top:0.2rem"><em>Under review</em></div>
+            <div class="pub-title">Inequalities in children's learning environments and skills during the Covid-19 pandemic: Evidence from Germany</div>
+            <div class="pub-meta">Pezzi, R. and Chzhen, Y.</div>
+            <div class="pub-meta" style="margin-top:0.2rem">Planned submission to <em>European Sociological Review</em></div>
+            <span class="pub-status status-review">Under review</span>
           </div>
-        </div>
 
-        <div class="pub-group">
-          <div class="pub-group-label">Educational expectations &middot; England</div>
           <div class="pub-entry">
-            <div class="pub-title">Pathway-specific educational expectations by socioeconomic background and ethnicity: Evidence from COSMO</div>
-            <div class="pub-meta">
-              Examining expectations toward A-levels, T-levels, and apprenticeships using the COSMO dataset; socioeconomic background and ethnicity as primary axes of differentiation.
-            </div>
-            <div class="pub-meta" style="margin-top:0.2rem"><em>Work in progress</em></div>
+            <div class="pub-title">Educational expectations in England: Exploring the role of social class and ethnicity</div>
+            <div class="pub-meta">Pezzi, R. and Chzhen, Y.</div>
+            <div class="pub-meta" style="margin-top:0.2rem">Manuscript in preparation, planned submission to <em>Educational Review</em></div>
+            <span class="pub-status status-progress">In preparation</span>
+          </div>
+
+          <div class="pub-entry">
+            <div class="pub-title">Social origin and the risk of dropout: the stratification of higher education trajectories in Ireland</div>
+            <div class="pub-meta">Pezzi, R., Chzhen, Y. and Ortiz-Gervasi, L.</div>
+            <div class="pub-meta" style="margin-top:0.2rem">Manuscript in preparation, planned submission to <em>Oxford Review of Education</em></div>
+            <span class="pub-status status-progress">In preparation</span>
           </div>
         </div>
       </section>
@@ -542,20 +592,12 @@
           <div class="pub-group-label">Peer-reviewed articles</div>
 
           <div class="pub-entry">
-            <div class="pub-title">Article title here (w/ Co-Author Name)</div>
-            <div class="pub-meta"><em>Journal Name</em>, Volume(Issue), pp. xxx&ndash;xxx, Year.</div>
+            <div class="pub-title">Social inequalities in Irish children's cognitive and mental health during secondary school transition: the role of the home learning environment</div>
+            <div class="pub-meta">Pezzi, R. and Chzhen, Y.</div>
+            <div class="pub-meta" style="margin-top:0.2rem"><em>Longitudinal and Life Course Studies</em>, 2026</div>
+            <span class="pub-status status-published">Published</span>
             <div class="pub-links">
-              <a href="#">DOI</a>
-              <a href="#">Preprint</a>
-              <a href="#">Replication materials</a>
-            </div>
-          </div>
-
-          <div class="pub-entry">
-            <div class="pub-title">Second article title here</div>
-            <div class="pub-meta"><em>Journal Name</em>, Volume(Issue), pp. xxx&ndash;xxx, Year.</div>
-            <div class="pub-links">
-              <a href="#">DOI</a>
+              <a href="https://doi.org/10.1332/17579597Y2026D000000073" target="_blank">DOI</a>
             </div>
           </div>
         </div>
@@ -566,13 +608,10 @@
         <h2 class="section-head">Journalism</h2>
 
         <div class="journal-entry">
-          <span class="journal-year">2024</span>
+          <span class="journal-year">2025</span>
           <div>
-            <div class="journal-title">La nube ha sete: data center, consumo energetico e gentrificazione dell'energia</div>
+            <div class="journal-title">Cura e giustizia sociale. Intervista a Kathleen Lynch</div>
             <div class="journal-venue">Jacobin Italia</div>
-            <div class="journal-desc">
-              An investigative long-form piece on data centres, energy consumption, and the political economy of digital infrastructure, examining Ireland as a cautionary precedent for Italy and tracing the military-industrial dimensions of cloud computing.
-            </div>
             <a class="journal-link" href="#" target="_blank">Read article &rarr;</a>
           </div>
         </div>
@@ -580,9 +619,8 @@
         <div class="journal-entry">
           <span class="journal-year">2023</span>
           <div>
-            <div class="journal-title">Article title here</div>
+            <div class="journal-title">Ripensare l'istruzione</div>
             <div class="journal-venue">Jacobin Italia</div>
-            <div class="journal-desc">Brief description of the piece.</div>
             <a class="journal-link" href="#" target="_blank">Read article &rarr;</a>
           </div>
         </div>
@@ -598,66 +636,256 @@
             <span class="cv-dates">2022&ndash;present</span>
             <div class="cv-desc">
               <strong>PhD in Sociology</strong>
-              <span>University College Dublin &mdash; School of Sociology</span>
+              <span>Trinity College Dublin, Ireland</span>
+              <span class="cv-note">Thesis: Socioeconomic inequality and educational pathways from childhood to early adulthood. Supervisor: Dr. Yekaterina Chzhen</span>
             </div>
           </div>
           <div class="cv-row">
-            <span class="cv-dates">YYYY&ndash;YYYY</span>
+            <span class="cv-dates">2019&ndash;2022</span>
             <div class="cv-desc">
-              <strong>MA in [field]</strong>
-              <span>Institution name</span>
+              <strong>Double Degree MSc in Sociology and Social Research</strong>
+              <span>University of Trento and University of Bamberg (Italy &amp; Germany)</span>
+              <span class="cv-note">Supervisors: Prof. Dr. Corinna Kleinert &amp; Dr. Raffaele Grotti</span>
             </div>
           </div>
           <div class="cv-row">
-            <span class="cv-dates">YYYY&ndash;YYYY</span>
+            <span class="cv-dates">2015&ndash;2018</span>
             <div class="cv-desc">
-              <strong>BA in [field]</strong>
-              <span>Institution name</span>
+              <strong>BA in Sociology and Social Sciences</strong>
+              <span>University of Trento, Italy</span>
+              <span class="cv-note">Supervisor: Dr. Giorgio Cutuli</span>
             </div>
           </div>
         </div>
 
         <div class="cv-section">
-          <div class="cv-section-title">Academic positions &amp; affiliations</div>
+          <div class="cv-section-title">Academic visits</div>
           <div class="cv-row">
-            <span class="cv-dates">2022&ndash;present</span>
+            <span class="cv-dates">Sept&ndash;Dec 2025</span>
             <div class="cv-desc">
-              <strong>PhD Researcher</strong>
-              <span>University College Dublin</span>
+              <strong>Visiting Researcher</strong>
+              <span>DemoSoc Group, Department of Political and Social Sciences, Universitat Pompeu Fabra, Barcelona</span>
+              <span class="cv-note">Hosted by Dr. Luis Ortiz-Gervasi</span>
             </div>
           </div>
         </div>
 
         <div class="cv-section">
-          <div class="cv-section-title">Journalism</div>
+          <div class="cv-section-title">Awards and scholarships</div>
           <div class="cv-row">
-            <span class="cv-dates">YYYY&ndash;present</span>
+            <span class="cv-dates">2025</span>
             <div class="cv-desc">
-              <strong>Contributing journalist</strong>
-              <span>Jacobin Italia (byline: Rodolfo Pezzi)</span>
+              <strong>ECSR Visitor Grant <span class="award-pill">&euro;2,000</span></strong>
+              <span>European Consortium for Sociological Research</span>
+            </div>
+          </div>
+          <div class="cv-row">
+            <span class="cv-dates">2025</span>
+            <div class="cv-desc">
+              <strong>Dermot McAleese Teaching Assistant Award <span class="award-pill">&euro;500</span></strong>
+              <span>Trinity College Dublin</span>
+            </div>
+          </div>
+          <div class="cv-row">
+            <span class="cv-dates">2024</span>
+            <div class="cv-desc">
+              <strong>Dermot McAleese Teaching Assistant Award &ndash; Certificate of Merit</strong>
+              <span>Trinity College Dublin</span>
+            </div>
+          </div>
+          <div class="cv-row">
+            <span class="cv-dates">2023</span>
+            <div class="cv-desc">
+              <strong>TRiSS Travel Bursary <span class="award-pill">&euro;750</span></strong>
+              <span>Trinity Research in Social Sciences, Trinity College Dublin</span>
+            </div>
+          </div>
+          <div class="cv-row">
+            <span class="cv-dates">2022</span>
+            <div class="cv-desc">
+              <strong>PhD Scholarship in Sociology (48 months, full-time)</strong>
+              <span>Trinity College Dublin</span>
+            </div>
+          </div>
+          <div class="cv-row">
+            <span class="cv-dates">2020&ndash;2021</span>
+            <div class="cv-desc">
+              <strong>Double-degree scholarship <span class="award-pill">&euro;2,000</span></strong>
+              <span>University of Trento</span>
             </div>
           </div>
         </div>
 
-        <a class="cv-download" href="cv.pdf" target="_blank">
+        <div class="cv-section">
+          <div class="cv-section-title">Professional services and memberships</div>
+          <div class="cv-row">
+            <span class="cv-dates">2023&ndash;2025</span>
+            <div class="cv-desc">
+              <strong>PhD Representative</strong>
+              <span>Department of Sociology, Trinity College Dublin</span>
+            </div>
+          </div>
+          <div class="cv-row">
+            <span class="cv-dates">2024&ndash;ongoing</span>
+            <div class="cv-desc">
+              <strong>Member</strong>
+              <span>Trinity Research in Childhood Centre (TRiCC)</span>
+            </div>
+          </div>
+          <div class="cv-row">
+            <span class="cv-dates">2023&ndash;ongoing</span>
+            <div class="cv-desc">
+              <strong>Member</strong>
+              <span>ISA RC28 &amp; European Consortium for Sociological Research (ECSR)</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="cv-section">
+          <div class="cv-section-title">Software and languages</div>
+          <div class="cv-row">
+            <span class="cv-dates">Software</span>
+            <div class="cv-desc">
+              <span>Stata (advanced), R (basic), LimeSurvey, Atlas.ti, GitHub, Zotero</span>
+            </div>
+          </div>
+          <div class="cv-row">
+            <span class="cv-dates">Languages</span>
+            <div class="cv-desc">
+              <span>Italian (native), English (fluent), Spanish (intermediate), German (intermediate)</span>
+            </div>
+          </div>
+        </div>
+
+        <a class="cv-download" href="Academic_CV_Rodolfo_Pezzi.pdf" target="_blank">
           &#8659; Download full CV (PDF)
         </a>
       </section>
 
-      <!-- DATA & CODE -->
-      <section id="code">
-        <h2 class="section-head">Data &amp; Code</h2>
+      <!-- CONFERENCES -->
+      <section id="conferences">
+        <h2 class="section-head">Conference presentations</h2>
 
-        <div class="code-entry">
-          <h3>Replication materials: [Article title]</h3>
-          <p>Dataset, analysis scripts, and codebook for the paper on social origin and dropout risk in Irish higher education.</p>
-          <a href="https://github.com/rodolfopezzi" target="_blank">GitHub repository &rarr;</a>
+        <div class="conf-entry">
+          <span class="conf-date">June 2026</span>
+          <div class="conf-body">
+            <strong>ECSR 2026 Annual Conference &ndash; &ldquo;Inequality by Design? Social Divides in an Age of Uncertainty&rdquo; <span class="conf-type">Oral</span></strong>
+          </div>
         </div>
 
-        <div class="code-entry">
-          <h3>Replication materials: [Article title]</h3>
-          <p>Replication code and supplementary materials.</p>
-          <a href="https://github.com/rodolfopezzi" target="_blank">GitHub repository &rarr;</a>
+        <div class="conf-entry">
+          <span class="conf-date">May 2026</span>
+          <div class="conf-body">
+            <strong>ISA-RC28 Spring Meeting 2026 <span class="conf-type">Oral</span></strong>
+            <span>Addressing Social Inequalities in the Global North and South, Pablo de Olavide University, Seville</span>
+          </div>
+        </div>
+
+        <div class="conf-entry">
+          <span class="conf-date">Jan. 2026</span>
+          <div class="conf-body">
+            <strong>ISA-RC28 Online Conference on Educational Inequalities <span class="conf-type">Oral</span></strong>
+            <span>CRIS &ndash; Sciences Po, Paris</span>
+          </div>
+        </div>
+
+        <div class="conf-entry">
+          <span class="conf-date">May 2025</span>
+          <div class="conf-body">
+            <strong>EAPS Child and Adolescent Development Network <span class="conf-type">Oral</span></strong>
+          </div>
+        </div>
+
+        <div class="conf-entry">
+          <span class="conf-date">Mar. 2025</span>
+          <div class="conf-body">
+            <strong>ISA-RC28 Spring Meeting 2025 <span class="conf-type">Oral</span></strong>
+            <span>Education, Markets, and Families: The Dynamics of Social Stratification and Inequalities, Universit&agrave; degli Studi di Milano</span>
+          </div>
+        </div>
+
+        <div class="conf-entry">
+          <span class="conf-date">Sept. 2024</span>
+          <div class="conf-body">
+            <strong>ECSR 2024 Annual Conference &ndash; &ldquo;Addressing Inequalities in Incomplete Revolutions&rdquo; <span class="conf-type">Poster</span></strong>
+          </div>
+        </div>
+
+        <div class="conf-entry">
+          <span class="conf-date">May 2023</span>
+          <div class="conf-body">
+            <strong>ISA-RC28 Spring Meeting 2023 <span class="conf-type">Poster</span></strong>
+            <span>Sciences Po, Paris</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- TEACHING -->
+      <section id="teaching">
+        <h2 class="section-head">Teaching</h2>
+
+        <div class="cv-section">
+          <div class="cv-section-title">Lecturer</div>
+          <div class="cv-row">
+            <span class="cv-dates">Nov. 2025&ndash;present</span>
+            <div class="cv-desc">
+              <strong>Social Inequality and Intergroup Relations</strong>
+              <span>Dublin City University</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="cv-section">
+          <div class="cv-section-title">Teaching assistant &ndash; Trinity College Dublin</div>
+          <div class="cv-row">
+            <span class="cv-dates">2024</span>
+            <div class="cv-desc">
+              <strong>Inequality in the 21st Century</strong>
+            </div>
+          </div>
+          <div class="cv-row">
+            <span class="cv-dates">2024&ndash;2025</span>
+            <div class="cv-desc">
+              <strong>Introduction to Social Research</strong>
+            </div>
+          </div>
+          <div class="cv-row">
+            <span class="cv-dates">2023&ndash;2024</span>
+            <div class="cv-desc">
+              <strong>Researching Society</strong>
+            </div>
+          </div>
+          <div class="cv-row">
+            <span class="cv-dates">2022&ndash;2023</span>
+            <div class="cv-desc">
+              <strong>Introduction to Sociology</strong>
+            </div>
+          </div>
+        </div>
+
+        <div class="cv-section">
+          <div class="cv-section-title">Other</div>
+          <div class="cv-row">
+            <span class="cv-dates">Oct&ndash;Dec 2022</span>
+            <div class="cv-desc">
+              <strong>Research Assistant</strong>
+              <span>Trinity College Dublin</span>
+            </div>
+          </div>
+          <div class="cv-row">
+            <span class="cv-dates">2019&ndash;2020</span>
+            <div class="cv-desc">
+              <strong>Tutor for undergraduate students</strong>
+              <span>University of Trento</span>
+            </div>
+          </div>
+          <div class="cv-row">
+            <span class="cv-dates">June&ndash;Sept 2019</span>
+            <div class="cv-desc">
+              <strong>Research Assistant</strong>
+              <span>FBK-IRVAPP, Research Institute for the Evaluation of Public Policies, Trento</span>
+            </div>
+          </div>
         </div>
       </section>
 
